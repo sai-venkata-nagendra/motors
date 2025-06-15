@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  @apply h-full m-0 p-0;
+}
+
+body {
+  background-image: url('/images/bg.png');
+  @apply bg-cover bg-center bg-fixed;
+}
+
+
+
