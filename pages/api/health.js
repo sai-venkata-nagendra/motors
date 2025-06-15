@@ -1,10 +1,11 @@
-import clientPromise from '../../lib/mongodb';
+import dbConnect from '../../lib/mongodb';
+import mongoose from 'mongoose';
 
 export default async function handler(req, res) {
   try {
-    // Check MongoDB connection
-    const client = await clientPromise;
-    const isConnected = client.topology.isConnected();
+    // Check MongoDB connection using Mongoose
+    await dbConnect();
+    const isConnected = mongoose.connection.readyState === 1;
     
     // Return health status
     res.status(200).json({
